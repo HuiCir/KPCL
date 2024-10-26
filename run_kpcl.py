@@ -26,16 +26,10 @@ n_entities = 0
 n_nodes = 0
 n_relations = 0
 
-try:
-    from cppimport import imp_from_filepath
-    from os.path import join, dirname
-    path = join(dirname(__file__), "utils/ext/sampling.cpp")
-    sampling = imp_from_filepath(path)
-    sampling.seed(seed)
-except:
-    sampling = UniformSampler(seed)
 
-setproctitle.setproctitle('@KGCL')
+sampling = UniformSampler(seed)
+
+setproctitle.setproctitle('@KPCL')
 
 def neg_sampling_cpp(train_cf_pairs, train_user_dict):
     time1 = time()
